@@ -2,9 +2,9 @@
 
 ## Overview
 
-This repository contains the official implementation of **AE-BORDA-DPO** and **AE-DPO**, methods we proposed in the [Sample-Efficient Preference Alignment in LLMs via Active Exploration](https://arxiv.org/abs/2312.00267) paper .
+This repository contains the official implementation of **AE-BORDA-DPO** and **AE-DPO**, methods we proposed in the [Sample-Efficient Preference Alignment in LLMs via Active Exploration](https://arxiv.org/abs/2312.00267) paper.
 
-These methods extend the Direct Preference Optimization (DPO) pipeline by introducing **active exploration** strategies that reduce the number of preference queries needed during training — enabling efficient use of API-based or human oracles.
+These methods extend the Direct Preference Optimization (DPO) pipeline by introducing **active exploration** strategies that reduce the number of preference queries needed during training.
 
 ---
 
@@ -23,19 +23,17 @@ Our codebase is structured similarly to the [original DPO implementation](https:
 
 - `train.py`: Main entry point for training across all methods. Supports both base and QLoRA-based models.
 - `trainers.py`: Training loop logic, including batch-wise active data selection.
-- `data_selection.py`: Implementations of AE (Active Entropy), BORDA, Uniform Sampling, and Uncertainty Sampling strategies.
-- `preference_datasets.py`: Dataset loading and oracle integration.  
-  **To train on your own data, modify this file.**
+- `data_selection.py`: Implementations of AE, Borda, Uniform Sampling, and Uncertainty selection strategies.
+- `preference_datasets.py`: Dataset loading and oracle integration. **To train on your own data, modify this file.**
 - `utils.py`: Shared utilities.
 - `data/`: Contains two contributed datasets — **Jeopardy!** and **Haikus**.
-- `config/`: Configuration files for reproducibility.  
-  Variables may be set in config files or via command-line flags.
+- `config/`: Configuration files. Variables may be set in config files or via command-line flags.
 
 ---
 
 ## Running Online Active Learning (AE-BORDA-DPO, Uniform-DPO)
 
-These methods assume that preference pairs are generated **online** by sampling from the model and sending them to an **oracle** (e.g., GPT-4 or a human) for preference labeling.
+These methods assume that preference pairs are generated **online** by sampling from the model and sending them to an **oracle** (e.g., GPT-4o) for preference labeling.
 
 Since all offline data can be used during SFT, the `pretrain_fraction` parameter is ignored in this setting.
 
@@ -97,4 +95,3 @@ If you find this work helpful in your research or applications, please consider 
 ## Acknowledgments
 
 This project builds upon the [Direct Preference Optimization (DPO)](https://github.com/eric-mitchell/direct-preference-optimization) framework by Eric Mitchell et al. We thank the authors for their open-source contributions.
-```
