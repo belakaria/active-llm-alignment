@@ -28,6 +28,7 @@ Our codebase is structured similarly to the [original DPO implementation](https:
 - `utils.py`: Shared utilities.
 - `data/`: Contains two contributed datasets — **Jeopardy!** and **Haikus**.
 - `config/`: Configuration files. Variables may be set in config files or via command-line flags.
+- `setup_nltk.py`: Setup nltk library if the Haiku dataset is needed.
 
 ---
 
@@ -73,6 +74,16 @@ python -u train.py model=gpt2-large datasets=[hh] loss=dpo loss.beta=0.1 \
   trainer=BasicTrainer sample_during_eval=true pretrain_fraction=0.3 \
   active=true qlora=true selection_strategy=us
 ```
+
+---
+
+### Environment Variables
+
+> **Note:** Some environment variables must be set depending on the method and configuration you are running:
+>
+> * `HF_TOKEN`: Required for downloading certain Hugging Face models or datasets.
+> * `WANDB_API_KEY`: Required if Weights & Biases (`wandb`) is enabled in the config file.
+> * `OPENAI_API_KEY`: Required if you are using any **online methods** (e.g., AE-BORDA-DPO) that query an API-based oracle such as OpenAI.
 
 ---
 
