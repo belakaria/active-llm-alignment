@@ -77,8 +77,6 @@ python -u train.py model=gpt2-large datasets=[hh] loss=dpo loss.beta=0.1 \
 
 ---
 
-### Environment Variables
-
 > **Note:** Some environment variables must be set depending on the method and configuration you are running:
 >
 > * `HF_TOKEN`: Required for downloading certain Hugging Face models or datasets.
