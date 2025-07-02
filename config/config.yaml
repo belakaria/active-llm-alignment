@@ -108,7 +108,7 @@ activation_checkpointing: false
 eval_every: 2_048
 
 # max train examples (if None, go till the train iterator gives up)
-max_train_examples: 1000
+max_train_examples: 30000
 
 # When pairs are sampled from model (online), this should be set to 1 during sft and ignored during dpo since using all offline data for SFT would not conflict with the active selection process.
 # For offline methods, to simulate a realistic setting, only a fraction of the dataset to use for pretraining/sft; if sft mode then this fraction is used, the remainder of the dataset will be used for dpo training
