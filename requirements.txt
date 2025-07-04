@@ -57,7 +57,6 @@ nvidia-cusparse-cu11==11.7.4.91
 nvidia-nccl-cu11==2.14.3
 nvidia-nvtx-cu11==11.7.91
 omegaconf==2.3.0
-openai==0.28.0
 packaging==23.1
 pandas==2.0.2
 parso==0.8.3

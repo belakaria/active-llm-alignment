@@ -36,7 +36,8 @@ from utils import (
     rank0_print,
     slice_and_move_batch_for_device,
 )
-
+import numpy as np
+import random
 
 def dpo_loss(
     policy_chosen_logps: torch.FloatTensor,
@@ -399,6 +400,9 @@ class BasicTrainer(object):
                 1.0, (step + 1) / (self.config.warmup_steps + 1)
             ),
         )
+        torch.manual_seed(self.seed)
+        np.random.seed(self.seed)
+        random.seed(self.seed)
 
         if self.config.loss.name == "dpo":
             self.reference_model.eval()
